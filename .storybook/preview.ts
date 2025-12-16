@@ -3,6 +3,7 @@ import type { Preview } from '@storybook/react';
 import '../src/styles/tokens.css';
 import '../src/styles/semantic-tokens.css';
 import '../src/styles/storiesStyle.css';
+// Easing tokens are imported as TS module when needed
 
 const preview: Preview = {
   parameters: {

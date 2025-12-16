@@ -52,182 +52,23 @@ import '../../styles/storiesStyle.css';
   </div>
 </div>
 
-### Neutral Colors
-중성 색상입니다.
+## ⚡ Easing Functions
+
+애니메이션 이징 함수들입니다. 자세한 내용은 [Easing Tokens](/?path=/docs/design-system-easing-tokens--docs)를 참고하세요.
+
+export const EasingPreview = ({ name, easing }) => (
+  <div className="token-item">
+    <div className="token-name">{name}</div>
+    <div className="token-value" style={{ fontFamily: 'var(--font-family-mono)', fontSize: 'var(--font-size-xs)' }}>
+      {easing}
+    </div>
+  </div>
+);
 
 <div className="token-display">
-  <div className="token-item">
-    <div className="token-preview" style={{ backgroundColor: 'var(--color-secondary-100)' }}></div>
-    <div className="token-name">Secondary 100</div>
-    <div className="token-value">--color-secondary-100</div>
-  </div>
-  <div className="token-item">
-    <div className="token-preview" style={{ backgroundColor: 'var(--color-secondary-500)' }}></div>
-    <div className="token-name">Secondary 500</div>
-    <div className="token-value">--color-secondary-500</div>
-  </div>
-  <div className="token-item">
-    <div className="token-preview" style={{ backgroundColor: 'var(--color-secondary-900)' }}></div>
-    <div className="token-name">Secondary 900</div>
-    <div className="token-value">--color-secondary-900</div>
-  </div>
-</div>
-
-## ✍️ Typography
-
-### Font Sizes
-
-<div style={{ marginBottom: '2rem' }}>
-  <div style={{ fontSize: 'var(--font-size-xs)', marginBottom: 'var(--spacing-2)' }}>
-    <span className="text-secondary">12px</span> - Extra Small Text
-  </div>
-  <div style={{ fontSize: 'var(--font-size-sm)', marginBottom: 'var(--spacing-2)' }}>
-    <span className="text-secondary">14px</span> - Small Text
-  </div>
-  <div style={{ fontSize: 'var(--font-size-base)', marginBottom: 'var(--spacing-2)' }}>
-    <span className="text-secondary">16px</span> - Base Text
-  </div>
-  <div style={{ fontSize: 'var(--font-size-lg)', marginBottom: 'var(--spacing-2)' }}>
-    <span className="text-secondary">18px</span> - Large Text
-  </div>
-  <div style={{ fontSize: 'var(--font-size-xl)', marginBottom: 'var(--spacing-2)' }}>
-    <span className="text-secondary">20px</span> - Extra Large Text
-  </div>
-  <div style={{ fontSize: 'var(--font-size-2xl)', marginBottom: 'var(--spacing-2)' }}>
-    <span className="text-secondary">24px</span> - 2XL Heading
-  </div>
-  <div style={{ fontSize: 'var(--font-size-3xl)', marginBottom: 'var(--spacing-2)' }}>
-    <span className="text-secondary">30px</span> - 3XL Heading
-  </div>
-</div>
-
-### Font Weights
-
-<div style={{ marginBottom: '2rem' }}>
-  <div className="font-light" style={{ marginBottom: 'var(--spacing-2)' }}>
-    Light (300) - 가벼운 텍스트
-  </div>
-  <div className="font-normal" style={{ marginBottom: 'var(--spacing-2)' }}>
-    Normal (400) - 일반 텍스트
-  </div>
-  <div className="font-medium" style={{ marginBottom: 'var(--spacing-2)' }}>
-    Medium (500) - 중간 굵기
-  </div>
-  <div className="font-semibold" style={{ marginBottom: 'var(--spacing-2)' }}>
-    Semibold (600) - 세미 볼드
-  </div>
-  <div className="font-bold" style={{ marginBottom: 'var(--spacing-2)' }}>
-    Bold (700) - 볼드 텍스트
-  </div>
-</div>
-
-## 📏 Spacing
-
-스페이싱 토큰들입니다.
-
-<div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)', marginBottom: '2rem' }}>
-  <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-4)' }}>
-    <div style={{ width: 'var(--spacing-1)', height: 'var(--spacing-1)', backgroundColor: 'var(--color-primary-500)' }}></div>
-    <span className="text-sm">4px - --spacing-1</span>
-  </div>
-  <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-4)' }}>
-    <div style={{ width: 'var(--spacing-2)', height: 'var(--spacing-2)', backgroundColor: 'var(--color-primary-500)' }}></div>
-    <span className="text-sm">8px - --spacing-2</span>
-  </div>
-  <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-4)' }}>
-    <div style={{ width: 'var(--spacing-4)', height: 'var(--spacing-4)', backgroundColor: 'var(--color-primary-500)' }}></div>
-    <span className="text-sm">16px - --spacing-4</span>
-  </div>
-  <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-4)' }}>
-    <div style={{ width: 'var(--spacing-6)', height: 'var(--spacing-6)', backgroundColor: 'var(--color-primary-500)' }}></div>
-    <span className="text-sm">24px - --spacing-6</span>
-  </div>
-  <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-4)' }}>
-    <div style={{ width: 'var(--spacing-8)', height: 'var(--spacing-8)', backgroundColor: 'var(--color-primary-500)' }}></div>
-    <span className="text-sm">32px - --spacing-8</span>
-  </div>
-</div>
-
-## 🔘 Border Radius
-
-모서리 둥글기 토큰들입니다.
-
-<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 'var(--spacing-4)', marginBottom: '2rem' }}>
-  <div className="card" style={{ borderRadius: 'var(--radius-sm)' }}>
-    <div className="text-sm font-medium">Small (2px)</div>
-    <div className="text-xs text-secondary">--radius-sm</div>
-  </div>
-  <div className="card" style={{ borderRadius: 'var(--radius-base)' }}>
-    <div className="text-sm font-medium">Base (4px)</div>
-    <div className="text-xs text-secondary">--radius-base</div>
-  </div>
-  <div className="card" style={{ borderRadius: 'var(--radius-md)' }}>
-    <div className="text-sm font-medium">Medium (6px)</div>
-    <div className="text-xs text-secondary">--radius-md</div>
-  </div>
-  <div className="card" style={{ borderRadius: 'var(--radius-lg)' }}>
-    <div className="text-sm font-medium">Large (8px)</div>
-    <div className="text-xs text-secondary">--radius-lg</div>
-  </div>
-  <div className="card" style={{ borderRadius: 'var(--radius-xl)' }}>
-    <div className="text-sm font-medium">XL (12px)</div>
-    <div className="text-xs text-secondary">--radius-xl</div>
-  </div>
-  <div className="card" style={{ borderRadius: 'var(--radius-2xl)' }}>
-    <div className="text-sm font-medium">2XL (16px)</div>
-    <div className="text-xs text-secondary">--radius-2xl</div>
-  </div>
-</div>
-
-## 🌫️ Shadows
-
-그림자 토큰들입니다.
-
-<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 'var(--spacing-6)', marginBottom: '2rem' }}>
-  <div className="card shadow-sm">
-    <div className="text-sm font-medium">Small Shadow</div>
-    <div className="text-xs text-secondary">--shadow-sm</div>
-  </div>
-  <div className="card shadow">
-    <div className="text-sm font-medium">Base Shadow</div>
-    <div className="text-xs text-secondary">--shadow-base</div>
-  </div>
-  <div className="card shadow-md">
-    <div className="text-sm font-medium">Medium Shadow</div>
-    <div className="text-xs text-secondary">--shadow-md</div>
-  </div>
-  <div className="card shadow-lg">
-    <div className="text-sm font-medium">Large Shadow</div>
-    <div className="text-xs text-secondary">--shadow-lg</div>
-  </div>
-  <div className="card shadow-xl">
-    <div className="text-sm font-medium">XL Shadow</div>
-    <div className="text-xs text-secondary">--shadow-xl</div>
-  </div>
-</div>
-
-## 🎯 Component Patterns
-
-토큰을 활용한 컴포넌트 패턴들입니다.
-
-### Buttons
-
-<div style={{ display: 'flex', gap: 'var(--spacing-4)', marginBottom: '2rem' }}>
-  <button className="btn btn-primary">Primary Button</button>
-  <button className="btn btn-secondary">Secondary Button</button>
-</div>
-
-### Cards
-
-<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 'var(--spacing-4)' }}>
-  <div className="card">
-    <h3 className="text-lg font-semibold mb-2">기본 카드</h3>
-    <p className="text-secondary text-sm">기본 카드 스타일입니다. 모든 토큰을 활용하여 만들어졌습니다.</p>
-  </div>
-  <div className="card bg-brand" style={{ color: 'var(--color-white)' }}>
-    <h3 className="text-lg font-semibold mb-2">브랜드 카드</h3>
-    <p className="text-sm" style={{ color: 'var(--color-primary-100)' }}>브랜드 색상을 사용한 카드입니다.</p>
-  </div>
+  <EasingPreview name="Standard" easing="cubic-bezier(0.15, 0, 0.15, 1)" />
+  <EasingPreview name="Ease Out" easing="cubic-bezier(0.33, 1, 0.68, 1)" />
+  <EasingPreview name="Spring" easing="cubic-bezier(0.34, 1.5, 0.54, 1)" />
 </div>
 
 ---
@@ -239,17 +80,19 @@ import '../../styles/storiesStyle.css';
 .my-component {
   color: var(--text-primary);
   background-color: var(--bg-secondary);
-  padding: var(--spacing-4);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-base);
+  transition: transform 0.3s var(--ease-spring);
 }
 ```
 
-### 유틸리티 클래스 사용
-```jsx
-<div className="p-4 bg-secondary rounded-md shadow text-primary">
-  Content here
-</div>
+### JavaScript/TypeScript에서 사용
+```javascript
+import { setEasing, getEasingCSS } from '@/styles/easing-tokens';
+
+// 배열 형태로 사용
+const easing = setEasing('ease_Spring'); // [0.34, 1.5, 0.54, 1]
+
+// CSS 문자열로 사용  
+const cssEasing = getEasingCSS('ease_Spring'); // "cubic-bezier(0.34, 1.5, 0.54, 1)"
 ```
 
 모든 토큰은 CSS Custom Properties로 구현되어 있어 일관성 있는 디자인을 유지할 수 있습니다.

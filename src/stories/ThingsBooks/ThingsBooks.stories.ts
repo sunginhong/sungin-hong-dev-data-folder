@@ -1,9 +1,8 @@
-import { Popup } from './Popup.tsx';
-import { fn } from '@storybook/test';
+import { ThingsBooks } from './ThingsBooks.tsx';
 
 export default {
-  title: 'Components/Popup',
-  component: Popup,
+  title: 'Projects/ThingsBooks',
+  component: ThingsBooks,
   parameters: {
     layout: 'centered',
   },

@@ -1,0 +1,231 @@
+import { Meta } from '@storybook/blocks';
+import { setEasing, getEasingCSS, easingDescriptions, type EasingType } from '../../styles/easing-tokens';
+import '../../styles/storiesStyle.css';
+
+<Meta title="Design System/Easing Tokens" />
+
+# Easing Tokens
+
+애니메이션의 **이징(Easing) 토큰**들입니다. 
+일관된 애니메이션 경험을 위한 큐빅 베지어 값들을 제공합니다.
+
+## 🎬 Available Easing Functions
+
+### Interactive Demos
+
+각 이징 함수의 움직임을 확인해보세요.
+
+export const EasingDemo = ({ easing, name, description, useCase }) => {
+  const [isAnimating, setIsAnimating] = React.useState(false);
+  
+  const triggerAnimation = () => {
+    setIsAnimating(true);
+    setTimeout(() => setIsAnimating(false), 2000);
+  };
+
+  const easingValue = getEasingCSS(easing);
+  
+  return (
+    <div className="card" style={{ marginBottom: 'var(--spacing-4)' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: 'var(--spacing-3)' }}>
+        <div>
+          <h4 className="text-lg font-semibold" style={{ margin: 0, marginBottom: 'var(--spacing-1)' }}>{name}</h4>
+          <p className="text-sm text-secondary" style={{ margin: 0, marginBottom: 'var(--spacing-1)' }}>{description}</p>
+          <p className="text-xs text-tertiary" style={{ margin: 0 }}><strong>Use case:</strong> {useCase}</p>
+        </div>
+        <button 
+          className="btn btn-primary"
+          onClick={triggerAnimation}
+          style={{ fontSize: 'var(--font-size-xs)' }}
+        >
+          Play
+        </button>
+      </div>
+      
+      <div style={{ 
+        height: '60px', 
+        backgroundColor: 'var(--bg-secondary)', 
+        borderRadius: 'var(--radius-md)',
+        position: 'relative',
+        overflow: 'hidden',
+        border: '1px dashed var(--border-subtle)'
+      }}>
+        <div 
+          style={{
+            width: '40px',
+            height: '40px',
+            backgroundColor: 'var(--color-primary-500)',
+            borderRadius: 'var(--radius-full)',
+            position: 'absolute',
+            top: '10px',
+            left: isAnimating ? 'calc(100% - 50px)' : '10px',
+            transition: `left 1.5s ${easingValue}`,
+          }}
+        />
+      </div>
+      
+      <div style={{ marginTop: 'var(--spacing-3)', fontFamily: 'var(--font-family-mono)', fontSize: 'var(--font-size-xs)', color: 'var(--text-tertiary)' }}>
+        <div><strong>CSS:</strong> {easingValue}</div>
+        <div><strong>Array:</strong> [{setEasing(easing).join(', ')}]</div>
+        <div><strong>Token:</strong> --ease-{easing.toLowerCase().replace(/_/g, '-')}</div>
+      </div>
+    </div>
+  );
+};
+
+<EasingDemo 
+  easing="standard" 
+  name="Standard" 
+  description="균형잡힌 표준 이징" 
+  useCase="일반적인 UI 애니메이션에 적합" 
+/>
+
+<EasingDemo 
+  easing="ease_Out" 
+  name="Ease Out" 
+  description="빠르게 시작해서 천천히 끝남" 
+  useCase="요소가 화면에 나타날 때" 
+/>
+
+<EasingDemo 
+  easing="ease_Out_Level_1" 
+  name="Ease Out Level 1" 
+  description="부드러운 ease out" 
+  useCase="섬세한 페이드 인 효과" 
+/>
+
+<EasingDemo 
+  easing="ease_In" 
+  name="Ease In" 
+  description="천천히 시작해서 빠르게 끝남" 
+  useCase="요소가 화면에서 사라질 때" 
+/>
+
+<EasingDemo 
+  easing="ease_InOut" 
+  name="Ease In Out" 
+  description="천천히 시작해서 천천히 끝남" 
+  useCase="크기 변화나 위치 이동" 
+/>
+
+<EasingDemo 
+  easing="ease_Spring" 
+  name="Spring" 
+  description="탄성 있는 스프링 효과" 
+  useCase="버튼 클릭이나 인터랙션" 
+/>
+
+<EasingDemo 
+  easing="ease_Spring_Level_1" 
+  name="Spring Level 1" 
+  description="강한 스프링 효과" 
+  useCase="주목을 끄는 애니메이션" 
+/>
+
+<EasingDemo 
+  easing="ease_Spring_Level_2" 
+  name="Spring Level 2" 
+  description="매우 강한 스프링 효과" 
+  useCase="특별한 이벤트나 성공 피드백" 
+/>
+
+<EasingDemo 
+  easing="linear" 
+  name="Linear" 
+  description="일정한 속도" 
+  useCase="프로그레스 바나 로딩 애니메이션" 
+/>
+
+## 📖 Usage Guide
+
+### 1. JavaScript/TypeScript에서 사용
+
+```typescript
+import { setEasing, getEasingCSS, getEasingVar } from '@/styles/easing-tokens';
+
+// 배열 형태 (기존 방식)
+const easingArray = setEasing('ease_Spring');
+// [0.34, 1.5, 0.54, 1]
+
+// CSS 문자열 형태
+const easingCSS = getEasingCSS('ease_Spring');
+// "cubic-bezier(0.34, 1.5, 0.54, 1)"
+
+// CSS Custom Property 형태
+const easingVar = getEasingVar('ease_Spring');
+// "var(--ease-spring)"
+```
+
+### 2. Framer Motion에서 사용
+
+```typescript
+import { motion } from 'framer-motion';
+import { setEasing, createFramerEasing } from '@/styles/easing-tokens';
+
+// 배열 방식
+<motion.div
+  animate={{ x: 100 }}
+  transition={{ 
+    duration: 0.5, 
+    ease: setEasing('ease_Spring') 
+  }}
+/>
+
+// 헬퍼 함수 사용
+<motion.div
+  animate={{ x: 100 }}
+  transition={{ 
+    duration: 0.5, 
+    ...createFramerEasing('ease_Spring') 
+  }}
+/>
+```
+
+### 3. CSS에서 사용
+
+```css
+/* CSS Custom Properties */
+.my-element {
+  transition: transform 0.3s var(--ease-spring);
+}
+
+/* 직접 값 사용 */
+.my-element {
+  transition: transform 0.3s cubic-bezier(0.34, 1.5, 0.54, 1);
+}
+```
+
+### 4. 인라인 스타일에서 사용
+
+```jsx
+import { getEasingCSS } from '@/styles/easing-tokens';
+
+<div 
+  style={{
+    transition: `opacity 0.3s ${getEasingCSS('ease_Out')}`
+  }}
+>
+  Content
+</div>
+```
+
+## 🎯 Best Practices
+
+### 언제 사용할까요?
+
+- **Standard**: 대부분의 일반적인 UI 애니메이션
+- **Ease Out**: 모달, 드롭다운, 툴팁 등이 나타날 때
+- **Ease In**: 모달이 사라지거나 요소가 숨겨질 때  
+- **Spring**: 버튼 호버, 클릭 피드백
+- **Linear**: 프로그레스 바, 로딩 스피너
+
+### 성능 고려사항
+
+- GPU 가속 속성(`transform`, `opacity`)에 애니메이션 적용 권장
+- 복잡한 스프링 이징은 과도한 사용 주의
+- 모바일에서는 더 부드러운 이징 함수 선택
+
+---
+
+모든 이징 토큰은 디자인 시스템의 일관성을 위해 사전 정의된 값들입니다.
+필요에 따라 적절한 이징 함수를 선택하여 사용하세요! ⚡️

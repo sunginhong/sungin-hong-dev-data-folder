@@ -2,11 +2,6 @@ import { Meta, Story, Canvas, Source } from '@storybook/blocks';
 import * as ThingsBooksStories from './ThingsBooks.stories';
 import '../../styles/storiesStyle.css';
 
-// MdxSubTitle 컴포넌트 정의
-export const MdxSubTitle = ({ title }) => (
-  <div className="mdx-subtitle">{title}</div>
-);
-
 <Meta title="Projects/ThingsBooks" of={ThingsBooksStories} />
 
 # ThingsBooks Project
@@ -14,7 +9,6 @@ export const MdxSubTitle = ({ title }) => (
 이 프로젝트는 **디자인 토큰**을 활용한 컴포넌트 시스템입니다.
 
 ### Basic
-<MdxSubTitle title="기본형 팝업입니다. 서비스 전반에 걸쳐 사용." />
 
 <div className='storybook-canvas grid pd-20'>
   <div className='storybook-canvas-content sample'>
