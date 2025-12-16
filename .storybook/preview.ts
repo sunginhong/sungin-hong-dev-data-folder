@@ -1,4 +1,8 @@
 import type { Preview } from '@storybook/react';
+// Import design tokens globally
+import '../src/styles/tokens.css';
+import '../src/styles/semantic-tokens.css';
+import '../src/styles/storiesStyle.css';
 
 const preview: Preview = {
   parameters: {
@@ -10,6 +14,23 @@ const preview: Preview = {
     },
     docs: {
       autodocs: 'tag',
+    },
+    backgrounds: {
+      default: 'light',
+      values: [
+        {
+          name: 'light',
+          value: '#ffffff',
+        },
+        {
+          name: 'dark',
+          value: '#1a1a1a',
+        },
+        {
+          name: 'brand',
+          value: 'var(--color-primary-50)',
+        },
+      ],
     },
   },
 };

@@ -1,0 +1,180 @@
+/**
+ * Semantic Tokens - 의미적 토큰
+ * 기본 토큰을 기반으로 한 의미적 용도별 토큰
+ */
+
+:root {
+  /* ========================================
+     Text Colors - 텍스트 색상
+     ======================================== */
+  
+  --text-primary: var(--color-secondary-900);
+  --text-secondary: var(--color-secondary-600);
+  --text-tertiary: var(--color-secondary-400);
+  --text-disabled: var(--color-secondary-300);
+  --text-inverse: var(--color-white);
+  --text-brand: var(--color-primary-600);
+  --text-success: var(--color-success-600);
+  --text-warning: var(--color-warning-600);
+  --text-error: var(--color-error-600);
+
+  /* ========================================
+     Background Colors - 배경 색상
+     ======================================== */
+  
+  --bg-primary: var(--color-white);
+  --bg-secondary: var(--color-secondary-50);
+  --bg-tertiary: var(--color-secondary-100);
+  --bg-inverse: var(--color-secondary-900);
+  --bg-brand: var(--color-primary-500);
+  --bg-brand-hover: var(--color-primary-600);
+  --bg-brand-active: var(--color-primary-700);
+  --bg-success: var(--color-success-50);
+  --bg-warning: var(--color-warning-50);
+  --bg-error: var(--color-error-50);
+  --bg-overlay: rgba(0, 0, 0, 0.5);
+
+  /* ========================================
+     Border Colors - 테두리 색상
+     ======================================== */
+  
+  --border-default: var(--color-secondary-200);
+  --border-subtle: var(--color-secondary-100);
+  --border-strong: var(--color-secondary-300);
+  --border-brand: var(--color-primary-500);
+  --border-success: var(--color-success-300);
+  --border-warning: var(--color-warning-300);
+  --border-error: var(--color-error-300);
+  --border-focus: var(--color-primary-500);
+
+  /* ========================================
+     Interactive Colors - 인터랙션 색상
+     ======================================== */
+  
+  /* Button Colors */
+  --btn-primary-bg: var(--color-primary-500);
+  --btn-primary-hover: var(--color-primary-600);
+  --btn-primary-active: var(--color-primary-700);
+  --btn-primary-text: var(--color-white);
+
+  --btn-secondary-bg: var(--color-white);
+  --btn-secondary-hover: var(--color-secondary-50);
+  --btn-secondary-active: var(--color-secondary-100);
+  --btn-secondary-text: var(--color-secondary-700);
+  --btn-secondary-border: var(--color-secondary-300);
+
+  --btn-success-bg: var(--color-success-500);
+  --btn-success-hover: var(--color-success-600);
+  --btn-success-active: var(--color-success-700);
+  --btn-success-text: var(--color-white);
+
+  --btn-warning-bg: var(--color-warning-500);
+  --btn-warning-hover: var(--color-warning-600);
+  --btn-warning-active: var(--color-warning-700);
+  --btn-warning-text: var(--color-white);
+
+  --btn-error-bg: var(--color-error-500);
+  --btn-error-hover: var(--color-error-600);
+  --btn-error-active: var(--color-error-700);
+  --btn-error-text: var(--color-white);
+
+  /* Link Colors */
+  --link-default: var(--color-primary-600);
+  --link-hover: var(--color-primary-700);
+  --link-active: var(--color-primary-800);
+  --link-visited: var(--color-primary-800);
+
+  /* Form Colors */
+  --input-bg: var(--color-white);
+  --input-border: var(--color-secondary-300);
+  --input-border-hover: var(--color-secondary-400);
+  --input-border-focus: var(--color-primary-500);
+  --input-text: var(--color-secondary-900);
+  --input-placeholder: var(--color-secondary-400);
+
+  /* ========================================
+     Component Specific Tokens
+     ======================================== */
+  
+  /* Card */
+  --card-bg: var(--color-white);
+  --card-border: var(--color-secondary-200);
+  --card-shadow: var(--shadow-base);
+  --card-radius: var(--radius-lg);
+  --card-padding: var(--spacing-6);
+
+  /* Modal */
+  --modal-bg: var(--color-white);
+  --modal-shadow: var(--shadow-2xl);
+  --modal-radius: var(--radius-xl);
+  --modal-backdrop: var(--bg-overlay);
+
+  /* Tooltip */
+  --tooltip-bg: var(--color-secondary-800);
+  --tooltip-text: var(--color-white);
+  --tooltip-shadow: var(--shadow-lg);
+  --tooltip-radius: var(--radius-md);
+
+  /* Navigation */
+  --nav-bg: var(--color-white);
+  --nav-border: var(--color-secondary-200);
+  --nav-link: var(--color-secondary-600);
+  --nav-link-hover: var(--color-secondary-900);
+  --nav-link-active: var(--color-primary-600);
+
+  /* Status Colors */
+  --status-success-bg: var(--color-success-50);
+  --status-success-text: var(--color-success-700);
+  --status-success-border: var(--color-success-200);
+
+  --status-warning-bg: var(--color-warning-50);
+  --status-warning-text: var(--color-warning-700);
+  --status-warning-border: var(--color-warning-200);
+
+  --status-error-bg: var(--color-error-50);
+  --status-error-text: var(--color-error-700);
+  --status-error-border: var(--color-error-200);
+
+  --status-info-bg: var(--color-primary-50);
+  --status-info-text: var(--color-primary-700);
+  --status-info-border: var(--color-primary-200);
+}
+
+/* ========================================
+   Dark Mode Tokens (optional)
+   ======================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Text Colors - Dark Mode */
+    --text-primary: var(--color-white);
+    --text-secondary: var(--color-secondary-300);
+    --text-tertiary: var(--color-secondary-400);
+    --text-disabled: var(--color-secondary-600);
+    --text-inverse: var(--color-secondary-900);
+
+    /* Background Colors - Dark Mode */
+    --bg-primary: var(--color-secondary-900);
+    --bg-secondary: var(--color-secondary-800);
+    --bg-tertiary: var(--color-secondary-700);
+    --bg-inverse: var(--color-white);
+
+    /* Border Colors - Dark Mode */
+    --border-default: var(--color-secondary-700);
+    --border-subtle: var(--color-secondary-800);
+    --border-strong: var(--color-secondary-600);
+
+    /* Card - Dark Mode */
+    --card-bg: var(--color-secondary-800);
+    --card-border: var(--color-secondary-700);
+
+    /* Modal - Dark Mode */
+    --modal-bg: var(--color-secondary-800);
+
+    /* Navigation - Dark Mode */
+    --nav-bg: var(--color-secondary-800);
+    --nav-border: var(--color-secondary-700);
+    --nav-link: var(--color-secondary-300);
+    --nav-link-hover: var(--color-white);
+  }
+}
