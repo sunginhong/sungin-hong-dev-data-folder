@@ -1,0 +1,116 @@
+import { Meta } from '@storybook/blocks';
+import { Button } from './Button';
+
+<Meta title="Documentation/Button Guide" />
+
+# Button Component Documentation
+
+이 문서는 **Button 컴포넌트**에 대한 완전한 가이드입니다.
+
+## Overview
+
+Button 컴포넌트는 사용자 인터랙션을 위한 기본적인 UI 요소입니다. 
+다양한 스타일과 크기를 제공합니다.
+
+## Basic Usage
+
+기본적인 버튼 사용법입니다:
+
+```jsx
+<Button primary={true} label="Primary Button" />
+```
+
+export const PrimaryExample = () => (
+  <Button primary={true} label="Primary Button" />
+);
+
+<PrimaryExample />
+
+## Variants
+
+### Primary Button
+주요 액션에 사용되는 버튼입니다.
+
+export const PrimaryBtn = () => (
+  <Button primary={true} label="Primary" />
+);
+
+<PrimaryBtn />
+
+### Secondary Button
+보조 액션에 사용되는 버튼입니다.
+
+export const SecondaryBtn = () => (
+  <Button primary={false} label="Secondary" />
+);
+
+<SecondaryBtn />
+
+### Different Sizes
+
+export const SizeExamples = () => (
+  <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+    <Button size="small" label="Small" />
+    <Button size="medium" label="Medium" />
+    <Button size="large" label="Large" />
+  </div>
+);
+
+<SizeExamples />
+
+## Usage Guidelines
+
+### When to use
+- 사용자가 액션을 수행해야 할 때
+- 폼 제출이나 데이터 저장 시
+- 네비게이션이나 페이지 이동 시
+
+### When not to use
+- 단순한 링크나 네비게이션의 경우 (링크 사용 권장)
+- 텍스트가 매우 긴 경우
+
+## Code Examples
+
+### 기본 사용법
+
+```jsx
+import { Button } from './Button';
+
+function App() {
+  return (
+    <Button 
+      primary={true} 
+      label="Click me!"
+      onClick={() => alert('Hello!')}
+    />
+  );
+}
+```
+
+### 이벤트 핸들링
+
+```jsx
+const handleClick = (event) => {
+  console.log('Button clicked!', event);
+  // 원하는 로직 실행
+};
+
+<Button 
+  primary={true}
+  label="Submit"
+  onClick={handleClick}
+/>
+```
+
+## Accessibility
+
+이 컴포넌트는 접근성을 고려하여 제작되었습니다:
+
+- ✅ 키보드 네비게이션 지원
+- ✅ 스크린 리더 호환
+- ✅ 적절한 color contrast
+- ✅ Focus 상태 표시
+
+---
+
+더 자세한 정보가 필요하시면 개발팀에 문의해주세요! 📧
