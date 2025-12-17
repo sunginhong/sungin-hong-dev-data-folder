@@ -14,6 +14,6 @@ export default {
 
 export const Primary = {
   args: {
-   
+    type: 'primary',
   },
 };
